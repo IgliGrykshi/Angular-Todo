@@ -1,8 +1,8 @@
 angular.module("todoApp",[]).controller("TodoListController", function() {
   var todoList = this;
   todoList.todos = [
-    { name: "learn AngularJS", done: true },
-    { name: "learn ReactJS", done: false }
+    { name: "learn ReactJS", done: true },
+    { name: "learn AngularJS", done: false }
   ];
   todoList.addTodo = function() {
     todoList.todos.push({name: todoList.todoText, done:false });
@@ -11,7 +11,7 @@ angular.module("todoApp",[]).controller("TodoListController", function() {
   todoList.remaining = function() {
     var count = 0;
     angular.forEach(todoList.todos, function(todo) {
-      count += todoList.todo ? 1 : 0;
+      count += todo.done ? 1 : 0;
     });
     return count;
   };

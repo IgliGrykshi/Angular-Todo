@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="todoApp">
 <head>
+  <title>ToDo App</title>
     <link rel="stylesheet" href="todo/todo.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
@@ -11,13 +12,13 @@
   <div class="container">
     <h2>ToDo</h2>
     <div ng-controller="TodoListController as todoList">
-        <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+        <span>{{todoList.remaining()}} of {{todoList.todos.length}} tasks done</span>
         <ul class="unstyled">
           <li ng-repeat="todo in todoList.todos">
             <label class="checkbox">
               <input type="checkbox" ng-model="todo.done">
               <span class="done-{{todo.done}}">{{todo.name}}</span>
-              <input type="button" value="X" ng-click="todoList.delete()">
+              <input type="button" value="X" ng-click="todoList.delete(todo)">
             </label>
           </li>
         </ul>
